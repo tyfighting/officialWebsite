@@ -1,0 +1,34 @@
+﻿1.生成项目
+    vue init webpack xxx
+2.安装sass
+    npm install node-sass --save-dev
+    npm install sass-loader --save-dev
+    2.1配置sass:webpack.base.config.js在loaders里面加上
+        {
+                test: /\.scss$/,
+                loaders: ["style", "css", "sass"]
+        },
+    2.2使用：
+        <style lang="scss" scoped="" type="text/css"></style>
+3.安装axios
+    npm install axios
+4.上传git
+    首次：
+        打开Git Bash Here
+        git clone https://github.com/tyfighting/officialWebsite.git
+        cd officialWebsite
+        git add . //此操作是把officialWebsite文件夹下面新的文件或修改过的文件添加进来，如果有的文件之前已经添加了，它会自动省略
+        git commit  -m  "logs"//提交的信息是你的项目说明
+        git push -u origin master //推送
+    之后：
+        从GitHub上拉取内容用到"git pull"命令，
+        从本地版本库提交到GitHub上用到"git push origin master"命令。
+        不过需要注意的是，你每次将文件提交到GitHub之前，你需要先分别执行"git add ."和"git commit -m message"这两个命令。
+5.媒体查询设置的常用尺寸：
+    @media screen and (min-width:1200px)
+    @media screen and (min-width:992px)
+    @media screen and (min-width:768px)
+    @media screen and (min-width:480px)
+6.安装swiper
+    npm install swipper -dev--save
+    【https://blog.csdn.net/shelbyandfxj/article/details/83089741】
