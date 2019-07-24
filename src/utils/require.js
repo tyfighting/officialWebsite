@@ -11,7 +11,19 @@ const Instance=axios.create({
 Instance.interceptors.request.use(config=>{
     return config;
 })
-Instance.interceptors.response.use(response=>{
-    return response;
-})
+// Instance.interceptors.response.use(response=>{
+//     return response;
+// })
+Instance.interceptors.response.use(resp => {
+      let data = resp.data;
+      if (Number(data.code) !== 0) {
+        alert('网络错误')
+        throw new Error(data.data);
+      }
+      return data.data;
+    },
+    err => {
+      alert('网络错误')
+    }
+);
 export default Instance

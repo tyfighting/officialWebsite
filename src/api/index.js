@@ -7,3 +7,10 @@ export function business(query){
         params: query
     })
 }
+export function article(query){
+    return request({
+        url:'article/list.do',
+        method:'get',
+        params:query
+    })
+}
