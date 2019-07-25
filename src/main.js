@@ -8,11 +8,15 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false;
 // Vue.use(element)
-import {Carousel,CarouselItem} from 'element-ui'
+import {Carousel,CarouselItem,Button,MenuItem,Menu,Submenu} from 'element-ui'
 // Vue.component('el-carousel', Carousel);
 // Vue.component('el-carousel-item', CarouselItem);
 Vue.use(Carousel)
 Vue.use(CarouselItem)
+Vue.use(Button)
+Vue.use(MenuItem)
+Vue.use(Menu)
+Vue.use(Submenu)
 
 /* eslint-disable no-new */
 new Vue({
