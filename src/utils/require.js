@@ -18,9 +18,11 @@ Instance.interceptors.response.use(resp => {
       let data = resp.data;
       if (Number(data.code) !== 0) {
         alert('网络错误')
-        throw new Error(data.data);
+        throw new Error(data.msg);
       }
-      return data.data;
+      if(data.data){
+        return data.data;
+      }
     },
     err => {
       alert('网络错误')
