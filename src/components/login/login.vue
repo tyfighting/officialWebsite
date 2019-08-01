@@ -16,6 +16,7 @@
 <script>
 import {login} from '../../api/login'
 export default {
+    name:'Login',
     data(){
         return {
             userName:'',

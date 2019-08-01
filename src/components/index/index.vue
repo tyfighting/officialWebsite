@@ -180,6 +180,7 @@
   import {timeFormat} from '../../utils/common'
   import Language from './language'
   export default {
+    name:'Index',
     data () {
       return {
         business:[],
