@@ -5,15 +5,20 @@ import Vue from 'vue'
 
 const Instance=axios.create({
     baseURL:'http://data.xinxueshuo.cn/nsi-1.0/',
-    timeout:'12000'
+    timeout:'12000',
+    transformRequest:[function (data,headers) {
+      let ret = ''
+      for (let it in data) {
+        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+      }
+      ret=ret.substring(0,ret.length - 1);
+      return ret
+    }]
 })
 
 Instance.interceptors.request.use(config=>{
     return config;
 })
-// Instance.interceptors.response.use(response=>{
-//     return response;
-// })
 Instance.interceptors.response.use(resp => {
       let data = resp.data;
       if (Number(data.code) !== 0) {

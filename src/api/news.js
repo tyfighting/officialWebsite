@@ -1,9 +1,9 @@
 import request from '../utils/require'
 
-// 登录接口
-export function login(data){
+//获取文章列表
+export function article(data){
     return request({
-        url:'user/login.do',
+        url:'article/list.do',
         method:'post',
         data
     })
