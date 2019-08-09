@@ -35,6 +35,17 @@
           <p>{{v.title}}</p>
         </li>
       </ul>
+      <ul class="newsList3">
+        <li v-for="v in article.article3" :key="v.id">
+          <div class="img">
+            <img :src="v.coverImage">
+          </div>
+          <div>
+            <p>{{v.title}}</p>
+            <p>{{v.summary}}</p>
+          </div>
+        </li>
+      </ul>
     </div>
     
   </div>
@@ -55,7 +66,8 @@
         },
         article:{
           article1:[],
-          article2:[]
+          article2:[],
+          article3:[]
         },
       }
     },
@@ -80,11 +92,15 @@
       this.banner.banner1.splice(4,1)    
       this.banner.banner1.splice(4,1)
       this.article.article2=this.article.list; 
+      this.article.article3=this.article.list; 
       this.article.article1=[];
       this.article.article1.push(this.article.article2[0])
       this.article.article1.push(this.article.article2[1])
       this.article.article2.splice(0,1)    
-      this.article.article2.splice(0,1)
+      this.article.article2.splice(0,1)    
+      this.article.article3.splice(5,1)   
+      this.article.article3.splice(5,1)   
+      this.article.article3.splice(5,1)
     }
   }
 </script>
@@ -121,50 +137,106 @@
       font-size: 20px;
       margin: 10px 0;
     }
+  }  
+  img{
+    width: 100%;
   }
-  .newsList1{
-    display:flex;
-    &>div{
-      width: 50%;
-      display: flex;
-      align-items: flex-start;
-      &>div{
-        flex: 1;
-        img{
-          width: 100%;
-        }
-        p{
-          margin-top: 0px;
-          padding-left:10px; 
-        }
-      }
-    }
-  }
-  .newsList2{
-    display:flex;
-    flex-wrap: wrap;
-    &>li{
-      width: 50%;
-    }
+  p{
+    margin-top: 0px;
+    padding-left:10px; 
   }
 }
-@media screen and (min-width:480px){
-  
+@media screen and (min-width:375px){
+  .el-menu--horizontal > .el-submenu .el-submenu__title, .el-menu--horizontal > .el-menu-item{
+    padding:0 9px;
+  }
+  .nav .left img{
+    width: 200px;
+  }
+  .el-carousel__container{
+    height: 150px;
+  }
+  .newsList1,.newsList2{
+    display:none;
+  }
+  .newsList3{
+    li{
+      display: flex;
+      margin-bottom:10px; 
+      padding:0 20px;
+      &>div:last-child{
+        flex:3;
+        margin-left: 10px;
+        p{
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 1;
+        }
+        p:last-child{
+          color: #999;
+          font-size: 14px;
+        }
+      }
+      .img{flex:1}
+    }
+  }
 }
 @media screen and (min-width:768px){
   .banner,.news{
     width: 750px;
+  }
+  .newsList1,.newsList2{
+    display:none;
+  }
+  .newsList3{
+    li{
+      display: flex;
+      margin-bottom:10px; 
+      &>div:last-child{
+        flex:3;
+        margin-left: 10px;
+        p:last-child{
+          color: #999;
+          font-size: 14px;
+        }
+      }
+      .img{flex:1}
+    }
   }
 }
 @media screen and (min-width:992px){
   .banner,.news{
     width: 970px;
   }
+  .banner .carousel{
+    flex:3;
+  }
   .aside{
-    display: flex;
-    div{
-      flex:1
+    display: block;
+    margin-left: 20px;
+    img{
+      height: 145px;
     }
+  }
+  .newsList1{
+    display:flex;
+    justify-content: space-between;
+    &>div{
+      display: block;
+      width: 45%;
+      p:last-child{
+        color: #999;
+        font-size: 14px;
+      }
+    }
+  }
+  .newsList2{
+    display:block;
+    padding-left: 20px;
+  }
+  .newsList3{
+    display:none;
   }
 }
 @media screen and (min-width:1200px){
@@ -183,6 +255,27 @@
         height: 148px;
       }
     }
+  }
+  .newsList1{
+    display:flex;
+    &>div{
+      width: 50%;
+      display: flex;
+      align-items: flex-start;
+      &>div{
+        flex: 1;
+      }
+    }
+  }
+  .newsList2{
+    display:flex;
+    flex-wrap: wrap;
+    &>li{
+      width: 50%;
+    }
+  }
+  .newsList3{
+    display:none;
   }
 }
 </style>

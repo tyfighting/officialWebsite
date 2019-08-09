@@ -30,9 +30,10 @@
                 mode="horizontal"        
                 background-color="#20528f"
                 text-color="#fff"
+                @select="handleSelect"
                 active-text-color="#fff">
                 <el-menu-item index="1" :route="{name: 'Index'}">
-                    <Language link='' Chinese='首页' English="Home" :language="language"></Language>
+                    <Language link='/' Chinese='首页' English="Home" :language="language"></Language>
                 </el-menu-item>
                 <el-submenu index="2">
                     <template slot="title">
@@ -46,7 +47,7 @@
                     </el-menu-item>
                 </el-submenu>
                 <el-menu-item index="3" :route="{name: 'latest'}">        
-                <Language link='' Chinese='资讯中心' English="News" :language="language"></Language>
+                <Language link='/news/latest' Chinese='资讯中心' English="News" :language="language"></Language>
                 </el-menu-item>
                 <el-submenu index="4">
                 <template slot="title">
@@ -155,6 +156,9 @@
             changeL(command){
                 this.language=command;
                 this.languageText=command=='ch'?'中文':'English'
+            },
+            handleSelect(key, keyPath) {
+                console.log(key, keyPath);
             }
         }
         
