@@ -20,7 +20,7 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## TypeError: this.getResolve is not a function
+> TypeError: this.getResolve is not a function
 执行 npm install vue-style-loader css-loader sass-loader --save-dev 安装了css相关依赖之后，npm run dev，项目报错：TypeError: this.getResolve is not a function
 ``` bash
 解决方法：
