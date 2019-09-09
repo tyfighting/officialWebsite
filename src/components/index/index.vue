@@ -91,16 +91,13 @@
       this.banner.banner2.push(this.banner.banner1[5])
       this.banner.banner1.splice(4,1)    
       this.banner.banner1.splice(4,1)
-      this.article.article2=this.article.list; 
+      this.article.article2 = Object.assign([], this.article.list);
       this.article.article3=this.article.list; 
       this.article.article1=[];
       this.article.article1.push(this.article.article2[0])
       this.article.article1.push(this.article.article2[1])
       this.article.article2.splice(0,1)    
-      this.article.article2.splice(0,1)    
-      this.article.article3.splice(5,1)   
-      this.article.article3.splice(5,1)   
-      this.article.article3.splice(5,1)
+      this.article.article2.splice(0,1)
     }
   }
 </script>
@@ -146,15 +143,17 @@
     padding-left:10px; 
   }
 }
+@media screen and (max-width:768px){
+  .el-carousel__container{
+    height: 150px;
+  }
+}
 @media screen and (min-width:375px){
   .el-menu--horizontal > .el-submenu .el-submenu__title, .el-menu--horizontal > .el-menu-item{
     padding:0 9px;
   }
   .nav .left img{
     width: 200px;
-  }
-  .el-carousel__container{
-    height: 150px;
   }
   .newsList1,.newsList2{
     display:none;
@@ -258,10 +257,12 @@
   }
   .newsList1{
     display:flex;
+    margin-bottom: 20px;
     &>div{
       width: 50%;
       display: flex;
       align-items: flex-start;
+      margin:0 10px;
       &>div{
         flex: 1;
       }
