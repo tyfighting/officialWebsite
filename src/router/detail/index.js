@@ -1,14 +1,12 @@
-import inner from './inner'
 export default [
   {
     path: '/',
     name: 'Index',
-    component: ()=>import('@/components/index/index')
+    component: () => import('@/components/index/index')
   },
   {
-    path:'/login',
-    name:'Login',
-    component:()=>import('@/components/login/login')
-  },
-  ...inner
-]
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/components/login/login')
+  }
+];

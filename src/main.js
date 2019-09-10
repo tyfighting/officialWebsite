@@ -5,7 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store/index'
 
 Vue.config.productionTip = false;
-import {Carousel,CarouselItem,Button,MenuItem,Menu,Submenu,Dropdown,DropdownMenu,DropdownItem,Divider} from 'element-ui'
+import {Carousel,CarouselItem,Button,MenuItem,Menu,Submenu,Dropdown,DropdownMenu,DropdownItem,Divider,Loading} from 'element-ui'
 Vue.use(Carousel)
 Vue.use(CarouselItem)
 Vue.use(Button)
@@ -16,6 +16,7 @@ Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
 Vue.use(Divider)
+Vue.use(Loading)
 
 /* eslint-disable no-new */
 new Vue({
