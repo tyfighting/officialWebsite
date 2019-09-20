@@ -1,6 +1,6 @@
 <template>
   <div v-loading="loading" :data="objNews" style="width: 100%">
-    <div v-if ="objNews" class="news-list">
+    <div v-if="objNews" class="news-list">
       <div v-for="v in objNews" :key="v.id">
         <img :src="v.coverImage" />
         <p>{{ v.title }}</p>
@@ -51,6 +51,12 @@ export default {
     background: #fff;
     img {
       width: 100%;
+    }
+    p {
+      margin: 0;
+      font-size: 14px;
+      text-align: left;
+      padding:0 5px;
     }
   }
 }

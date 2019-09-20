@@ -1,42 +1,42 @@
 <template>
   <div class="newsWrap">
-    <div class="news">
-      <div>
-        <p @click="changeNews">资讯全览</p>
-        <i></i>
-      </div>
-      <div>
-        <p @click="changeNews">政策解读</p>
-        <i></i>
-      </div>
-      <div>
-        <p @click="changeNews">访校观察</p>
-        <i></i>
-      </div>
-      <div>
-        <p @click="changeNews">行业分析</p>
-        <i></i>
-      </div>
-      <div>
-        <p @click="changeNews">人物访谈</p>
-        <i></i>
-      </div>
-      <div>
-        <p @click="changeNews">历史文章</p>
-        <i></i>
-      </div>
-    </div>
-    <router-view :objNews=objNews.list></router-view>
+    <el-tabs
+      v-model="activeName"
+      @tab-click="handleClick"
+      class="news"
+      :stretch=true
+    >
+      <el-tab-pane label="资讯全览" name="first">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+      <el-tab-pane label="政策解读" name="second">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+      <el-tab-pane label="访校观察" name="third">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+      <el-tab-pane label="行业分析" name="fourth">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+      <el-tab-pane label="人物访谈" name="fifth">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+      <el-tab-pane label="历史文章" name="sixth">
+        <Latest :objNews="objNews.list"></Latest>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 <script>
 import { article } from "@/api/news";
+import Latest from "./latest";
 export default {
   name: "news",
-  data(){
+  data() {
     return {
-      objNews:''
-    }
+      objNews: "",
+      activeName: "first"
+    };
   },
   async mounted() {
     this.objNews = await article({
@@ -45,8 +45,9 @@ export default {
     });
   },
   methods: {
-    async changeNews(e){
-      let text=e.target.innerText;
+    async handleClick(tab, event) {
+      console.log(tab.label, event);
+      let text = tab.label;
       this.objNews = await article({
         pageNum: 1,
         pageSize: 16,
@@ -54,38 +55,27 @@ export default {
       });
     }
   },
+  components: {
+    Latest
+  }
 };
 </script>
 <style lang="scss">
-.newsWrap{
+.newsWrap {
   background: #fafafa;
 }
 .news {
-  display: flex;
-  justify-content: space-around;
   margin: 20px 0;
-  p {
-    color: #999;
-    font-size: 22px;
-    cursor: pointer;
-    padding: 20px 0;
-    margin: 0;
+  padding:20px 0;
+  .el-tabs__item {
+    color: #969696;
+    font-size: 18px;
   }
-  i {
-    display: block;
-    width: 100%;
-    height: 3px;
+  .el-tabs__item.is-active {
+    color: #333;
+  }
+  .el-tabs__active-bar {
     background: #333;
-    transition: all 0.5s ease;
-    transform: rotateY(90deg);
-  }
-  div:hover {
-    i {
-      transform: rotateY(0deg);
-    }
-    p {
-      color: #333;
-    }
   }
 }
 </style>
