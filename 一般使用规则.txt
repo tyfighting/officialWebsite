@@ -25,10 +25,11 @@
         从本地版本库提交到GitHub上用到"git push origin master"命令。
         不过需要注意的是，你每次将文件提交到GitHub之前，你需要先分别执行"git add ."和"git commit -m message"这两个命令。
 5.媒体查询设置的常用尺寸：
-    @media screen and (min-width:1200px)
-    @media screen and (min-width:992px)
-    @media screen and (min-width:768px)
-    @media screen and (min-width:480px)
+    @media only screen and (max-width: 600px) {}
+    @media only screen and (min-width:600px) {}
+    @media only screen and (min-width:768px) {}    
+    @media only screen and (min-width:992px) {}
+    @media only screen and (min-width:1200px) {}
 6.安装swiper
     npm install swipper -dev--save
     【https://blog.csdn.net/shelbyandfxj/article/details/83089741】
