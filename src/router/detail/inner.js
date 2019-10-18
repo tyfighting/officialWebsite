@@ -11,5 +11,10 @@ export default [
         component: () => import('@/components/news/latest')
       }
     ]
+  },
+  {
+    path:'/ges',
+    name:'ges',
+    component:()=>import('@/components/ges/ges')
   }
 ];

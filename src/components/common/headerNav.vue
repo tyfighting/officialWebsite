@@ -80,7 +80,7 @@
           <Language link="" Chinese="咨询服务" English="Service" :language="language"></Language>
         </el-menu-item>
         <el-menu-item index="7">
-          <Language link="" Chinese="G E S" English="G E S" :language="language"></Language>
+          <Language link="/ges" Chinese="G E S" English="G E S" :language="language"></Language>
         </el-menu-item>
         <el-menu-item index="8">
           <Language link="" Chinese="会 员" English="V I P" :language="language"></Language>
@@ -118,7 +118,7 @@
             <Language link="" Chinese="咨询服务" English="Service" :language="language"></Language>
           </el-menu-item>
           <el-menu-item index="5-3">
-            <Language link="" Chinese="G E S" English="G E S" :language="language"></Language>
+            <Language link="/ges" Chinese="G E S" English="G E S" :language="language"></Language>
           </el-menu-item>
           <el-menu-item index="5-4">
             <Language link="" Chinese="会 员" English="V I P" :language="language"></Language>
