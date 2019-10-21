@@ -37,6 +37,14 @@ export default {
       console.log(data)
       console.log(NewNumber)
       return NewNumber;
+    },
+    $_change(){
+      let data = '12321321312.001';
+      data < 0 ? (data = -data) : data;
+      let [a, b] = data.split('.');
+      b = Number('.' + b);
+      !b ? (b = '') : (b = '.' + b.toString().split('.')[1]);
+      let c = a.replace(/\d{1,3}(?=(\d{3})+$)/g, '$&,') + b;
     }
   }
 };
