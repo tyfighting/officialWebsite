@@ -45,7 +45,13 @@ export default {
       b = Number('.' + b);
       !b ? (b = '') : (b = '.' + b.toString().split('.')[1]);
       let c = a.replace(/\d{1,3}(?=(\d{3})+$)/g, '$&,') + b;
-    }
+    },
+    $_compact(){
+      arr => arr.filter(Boolean);
+      compact([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]); 
+      // [ 1, 2, 3, 'a', 's', 34 ]
+      // https://juejin.im/post/5da1a04ae51d45783d6122bf
+    } 
   }
 };
 </script>
