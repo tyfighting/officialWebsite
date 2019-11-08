@@ -60,7 +60,7 @@ export default {
         pageSize: 16,
         articleCat: text
       });
-      this.curPageNum=2;
+      this.curPageNum = 2;
     },
     async getMore() {
       let text = this.curText;
@@ -78,7 +78,7 @@ export default {
       }
       console.log(this.objNews);
     }
-  },
+  }
   // components: {
   //   Latest
   // }
