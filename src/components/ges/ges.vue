@@ -3,6 +3,9 @@
     <input placeholder="lazy" v-model.number="msg" @input="input" @change="change">
     <input placeholder="防抖" v-model="debounceMsg" @input="debounce(sayHi)" ref="debounce">
     <input placeholder="节流" v-model="throttleMsg" @input="throttle(sayNo)" ref="throttle">
+    <div class="content">
+      <div @click="_show">12345</div>
+    </div>
   </div>
 </template>
 
@@ -67,30 +70,33 @@ export default {
       console.log("change" + this.msg);
     },
     debounce(fn) {
+      //触发之后1s内无操作才会执行fn函数，多次触发根据最后一次开始计时
       console.log(this.$refs.debounce)
       if (this.fun !== null) {
         clearTimeout(this.fun);
       }
       this.fun = setTimeout(() => {
-        // 然后又创建一个新的 setTimeout, 这样就能保证输入字符后的 interval 间隔内如果还有字符输入的话，就不会执行 fn 函数
         fn.apply(this, arguments);
       }, 1000);
     },
     throttle(fn) {
-      if (!this.canRun) return; // 在函数开头判断标记是否为true，不为true则return
-      this.canRun = false; // 立即设置为false
+      //触发就执行fn函数，多次触发每经过1s就执行一次fn函数
+      console.log(this.$refs.throttle)
+      if (!this.canRun) return;
+      this.canRun = false; 
       setTimeout(() => {
-        // 将外部传入的函数的执行放在setTimeout中
         fn.apply(this, arguments);
-        // 最后在setTimeout执行完毕后再把标记设置为true(关键)表示可以执行下一次循环了。当定时器没有执行的时候标记永远是false，在开头被return掉
         this.canRun = true;
-      }, 500);
+      }, 1000);
     },
     sayHi() {
       console.log("防抖成功");
     },
     sayNo() {
       console.log("节流成功");
+    },
+    _show(e){
+      console.log(e.target.innerText)
     }
   }
 };
@@ -104,5 +110,17 @@ export default {
   background: #f4f4f4;
   line-height: 40px;
   padding: 0 10px;
+}
+.content{
+  font-size: 0;
+    text-align: center;
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+  // text-align: center;
 }
 </style>
